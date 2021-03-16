@@ -1,4 +1,4 @@
-const ternary = (bool: boolean, truthy: any, falsey: any) => {
+const ternary = (bool: boolean, truthy: unknown, falsey: unknown) => {
 	if (bool) {
 		return truthy
 	}

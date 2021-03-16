@@ -1,6 +1,6 @@
 import ternary from 'logic/utils/ternary'
 
-const orNull = (bool: boolean, truthy: any) => ternary(bool, truthy, null)
+const orNull = (bool: boolean, truthy: unknown) => ternary(bool, truthy, null)
 
 export default orNull
 
