@@ -1,26 +1,63 @@
 {
-	"extends": "@tsconfig/recommended/tsconfig.json",
-	"compilerOptions": {
-		"moduleResolution": "node",
-		"outDir": "./dist/",
-		"sourceMap": true,
-		"noImplicitAny": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"module": "esnext",
-		"target": "es2015",
-		"jsx": "react-jsx",
-		"jsxImportSource": "@emotion/react",
-		"baseUrl": "./",
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": "./",
+    "allowJs": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "module": "esnext",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext",
     "paths": {
-        "components/*": ["src/components/*"],
-        "pages/*": ["src/pages/*"],
-        "logic/*": ["src/logic/*"],
-        "constants/*": ["src/constants/*"],
-				"static/*": ["src/static/*"],
-				"types/*": ["src/types/*"],
-				"routes/*": ["src/routes/*"],
-				"theme/*": ["src/theme/*"],
+      "components/*": [
+        "src/components/*"
+      ],
+      "pages/*": [
+        "src/pages/*"
+      ],
+      "logic/*": [
+        "src/logic/*"
+      ],
+      "constants/*": [
+        "src/constants/*"
+      ],
+      "public/*": [
+        "public/*"
+      ],
+      "types/*": [
+        "src/types/*"
+      ],
+      "routes/*": [
+        "src/routes/*"
+      ],
+      "theme/*": [
+        "src/theme/*"
+      ]
     }
-	},
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }
