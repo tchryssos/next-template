@@ -1,11 +1,11 @@
 import Layout from 'components/meta/Layout';
-import FlexBox from 'components/FlexBox'
+import { Flex } from 'rebass';
 
-const Home = () => (
+const Home: React.FC = () => (
   <Layout>
-    <FlexBox alignItems="center" justifyContent="center">
+    <Flex alignItems="center" justifyItems="center">
       Welcome to Next JS! Edit src/pages/Home.tsx to get started...
-    </FlexBox>
+    </Flex>
   </Layout>
 );
 

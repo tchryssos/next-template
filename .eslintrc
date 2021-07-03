@@ -1,88 +1,89 @@
 {
-	"parser": "@typescript-eslint/parser",
-	"env": {
-		"browser": true,
-		"node": true,
-		"es6": true
-	},
-	"globals": {
-		"React": true
-	},
-	"plugins": [
-		"react",
-		"@emotion",
-		"@typescript-eslint",
-		"sort-imports-es6-autofix"
-	],
-	"extends": [
-		"eslint:recommended",
-		"airbnb",
-		"plugin:@typescript-eslint/recommended"
-	],
-	"root": true,
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "React": true
+  },
+  "plugins": [
+    "react",
+    "@emotion",
+    "@typescript-eslint",
+    "sort-imports-es6-autofix"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "root": true,
 
-	"rules": {
-		// eslint
-		"max-len": 0,
-		"one-var": 0,
-		"no-console": ["error", { "allow": ["warn", "error"] }],
-		"no-multiple-empty-lines": ["error", {"max": 2}],
-		"no-prototype-builtins": 0,
-		"class-methods-use-this": 0,
-		"padded-blocks": 0,
-		"no-tabs": 0,
-		"no-mixed-spaces-and-tabs": "error",
-		"indent": ["error", "tab", { "SwitchCase": 1 }],
-		"semi": 0,
-		"object-curly-newline": 0,
-		"no-confusing-arrow": 0,
-		"implicit-arrow-linebreak": 0,
-		"operator-linebreak": 0,
-		"prefer-arrow-callback": "warn",
+  "rules": {
+    // eslint
+    "max-len": 0,
+    "one-var": 0,
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-multiple-empty-lines": ["error", { "max": 2 }],
+    "no-prototype-builtins": 0,
+    "class-methods-use-this": 0,
+    "padded-blocks": 0,
+    "no-tabs": 0,
+    "no-mixed-spaces-and-tabs": "error",
+    "object-curly-newline": 0,
+    "no-confusing-arrow": 0,
+    "implicit-arrow-linebreak": 0,
+    "operator-linebreak": 0,
+    "prefer-arrow-callback": "warn",
 
-		// import
-		"import/no-named-as-default": 0,
-		"import/extensions": 0,
-		"import/prefer-default-export": 0,
+    // import
+    "import/no-named-as-default": 0,
+    "import/extensions": 0,
+    "import/prefer-default-export": 0,
 
-		// jsx-a11y
-		"jsx-a11y/href-no-hash": 0,
-		"jsx-a11y/label-has-for": 0,
-		"jsx-a11y/no-static-element-interactions": 0,
+    // jsx-a11y
+    "jsx-a11y/href-no-hash": 0,
+    "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
 
-		// react
-		"react/jsx-indent": [2, "spaces"],
-		"react/jsx-indent-props": ["error", "spaces"],
-		"react/jsx-filename-extension": [2, { "extensions": [".tsx"] }],
-		"react/jsx-no-bind": 1,
-		"react/require-default-props": 0,
-		"react/prop-types": 0,
-		"react/jsx-curly-newline": 0,
-		"react/button-has-type": "error",
-		"react/jsx-key": "warn",
-		"react/prefer-stateless-function": "warn",
-		"react/destructuring-assignment": [1, "always"],
-		"react/jsx-sort-props": [1, {
-      "callbacksLast": true
-    }],
-		"react/no-deprecated": "error",
-		"react/no-typos": "error",
-		"react/self-closing-comp": "warn",
-		"react/no-access-state-in-setstate": "error"
-	},
-	"parserOptions": {
-		"ecmaFeatures": {
-			"jsx": true,
-			"modules": true
-		}
-	},
+    // react
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-filename-extension": [2, { "extensions": [".tsx"] }],
+    "react/jsx-no-bind": 1,
+    "react/require-default-props": 0,
+    "react/prop-types": 0,
+    "react/jsx-curly-newline": 0,
+    "react/button-has-type": "error",
+    "react/jsx-key": "warn",
+    "react/prefer-stateless-function": "warn",
+    "react/destructuring-assignment": [1, "always"],
+    "react/jsx-sort-props": [
+      1,
+      {
+        "callbacksLast": true
+      }
+    ],
+    "react/no-deprecated": "error",
+    "react/no-typos": "error",
+    "react/self-closing-comp": "warn",
+    "react/no-access-state-in-setstate": "error"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
 
-	"settings": {
-		"import/resolver": {
-			"node": {
-				"paths": ["src"],
-				"extensions": [".ts", ".tsx", ".d.ts"]
-			}
-		}
-	}
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".ts", ".tsx", ".d.ts"]
+      }
+    }
+  }
 }
