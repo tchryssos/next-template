@@ -38,6 +38,7 @@
 		"no-confusing-arrow": 0,
 		"implicit-arrow-linebreak": 0,
 		"operator-linebreak": 0,
+		"prefer-arrow-callback": "warn",
 
 		// import
 		"import/no-named-as-default": 0,
@@ -56,7 +57,18 @@
 		"react/jsx-no-bind": 1,
 		"react/require-default-props": 0,
 		"react/prop-types": 0,
-		"react/jsx-curly-newline": 0
+		"react/jsx-curly-newline": 0,
+		"react/button-has-type": "error",
+		"react/jsx-key": "warn",
+		"react/prefer-stateless-function": "warn",
+		"react/destructuring-assignment": [1, "always"],
+		"react/jsx-sort-props": [1, {
+      "callbacksLast": true
+    }],
+		"react/no-deprecated": "error",
+		"react/no-typos": "error",
+		"react/self-closing-comp": "warn",
+		"react/no-access-state-in-setstate": "error"
 	},
 	"parserOptions": {
 		"ecmaFeatures": {
