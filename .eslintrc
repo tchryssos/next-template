@@ -43,6 +43,7 @@
     "import/no-named-as-default": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
 
     // jsx-a11y
     "jsx-a11y/href-no-hash": "off",

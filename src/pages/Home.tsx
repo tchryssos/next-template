@@ -1,5 +1,5 @@
-import Layout from 'components/meta/Layout';
 import { Flex } from 'rebass';
+import Layout from '~/components/meta/Layout';
 
 const Home: React.FC = () => (
   <Layout>

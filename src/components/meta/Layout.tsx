@@ -1,4 +1,4 @@
-import Head from './Head'
+import Head from './Head';
 
 type LayoutProps = {
   children?: React.ReactNode;

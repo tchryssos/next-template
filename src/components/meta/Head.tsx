@@ -1,8 +1,8 @@
 import NextHead from 'next/head';
 
 type HeadProps = {
-  title?: string
-}
+  title?: string;
+};
 
 const Head: React.FC<HeadProps> = ({ title = 'CHANGE ME' }) => (
   <NextHead>
@@ -15,9 +15,9 @@ const Head: React.FC<HeadProps> = ({ title = 'CHANGE ME' }) => (
   <link rel="dns-prefetch" href="https://fonts.gstatic.com/" /> */}
     <title>{title}</title>
     <meta charSet="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta name="description" content="Troy Chryssos' Next JS template"></meta>
+    <meta content="initial-scale=1.0, width=device-width" name="viewport" />
+    <meta content="Troy Chryssos' Next JS template" name="description" />
   </NextHead>
 );
 
-export default Head
+export default Head;
