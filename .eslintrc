@@ -23,45 +23,46 @@
 
   "rules": {
     // eslint
-    "max-len": 0,
-    "one-var": 0,
+    "max-len": "off",
+    "one-var": "off",
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "no-multiple-empty-lines": ["error", { "max": 2 }],
-    "no-prototype-builtins": 0,
-    "class-methods-use-this": 0,
-    "padded-blocks": 0,
-    "no-tabs": 0,
-    "no-mixed-spaces-and-tabs": "error",
-    "object-curly-newline": 0,
-    "no-confusing-arrow": 0,
-    "implicit-arrow-linebreak": 0,
-    "operator-linebreak": 0,
+    "no-prototype-builtins": "off",
+    "class-methods-use-this": "warn",
+    "padded-blocks": "off",
+    "no-tabs": "warn",
+    "no-mixed-spaces-and-tabs": "warn",
+    "object-curly-newline": "off",
+    "no-confusing-arrow": "off",
+    "implicit-arrow-linebreak": "off",
+    "operator-linebreak": "off",
     "prefer-arrow-callback": "warn",
+    "semi": "off",
 
     // import
-    "import/no-named-as-default": 0,
-    "import/extensions": 0,
-    "import/prefer-default-export": 0,
+    "import/no-named-as-default": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
 
     // jsx-a11y
-    "jsx-a11y/href-no-hash": 0,
-    "jsx-a11y/label-has-for": 0,
-    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
 
     // react
-    "react/jsx-indent": [2, 2],
-    "react/jsx-indent-props": [2, 2],
-    "react/jsx-filename-extension": [2, { "extensions": [".tsx"] }],
-    "react/jsx-no-bind": 1,
-    "react/require-default-props": 0,
-    "react/prop-types": 0,
-    "react/jsx-curly-newline": 0,
+    "react/jsx-indent": ["warn", 2],
+    "react/jsx-indent-props": ["warn", 2],
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "react/jsx-no-bind": "warn",
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
+    "react/jsx-curly-newline": "off",
     "react/button-has-type": "error",
     "react/jsx-key": "warn",
     "react/prefer-stateless-function": "warn",
-    "react/destructuring-assignment": [1, "always"],
+    "react/destructuring-assignment": ["warn", "always"],
     "react/jsx-sort-props": [
-      1,
+      "warn",
       {
         "callbacksLast": true
       }
@@ -69,7 +70,10 @@
     "react/no-deprecated": "error",
     "react/no-typos": "error",
     "react/self-closing-comp": "warn",
-    "react/no-access-state-in-setstate": "error"
+    "react/no-access-state-in-setstate": "error",
+
+    // Typescript
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
   "parserOptions": {
     "ecmaFeatures": {
