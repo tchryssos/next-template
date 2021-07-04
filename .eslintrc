@@ -30,8 +30,6 @@
     "no-prototype-builtins": "off",
     "class-methods-use-this": "warn",
     "padded-blocks": "off",
-    "no-tabs": "warn",
-    "no-mixed-spaces-and-tabs": "warn",
     "object-curly-newline": "off",
     "no-confusing-arrow": "off",
     "implicit-arrow-linebreak": "off",
