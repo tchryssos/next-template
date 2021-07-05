@@ -1,5 +1,6 @@
 import type { AppProps /* , AppContext */ } from 'next/app';
-import { css, Global } from '@emotion/react';
+import { css, Global, ThemeProvider } from '@emotion/react';
+import theme from '~/constants/theme';
 
 const marPadZero = css`
   margin: 0;
@@ -43,11 +44,11 @@ const globalStyles = css`
 `;
 
 const Page: React.FC<AppProps> = ({ Component, pageProps }) => (
-  <>
+  <ThemeProvider theme={theme}>
     <Global styles={globalStyles} />
     {/* eslint-disable-next-line react/jsx-props-no-spreading */}
     <Component {...pageProps} />
-  </>
+  </ThemeProvider>
 );
 
 export default Page;
