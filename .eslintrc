@@ -8,16 +8,12 @@
   "globals": {
     "React": true
   },
-  "plugins": [
-    "react",
-    "@emotion",
-    "@typescript-eslint",
-    "sort-imports-es6-autofix"
-  ],
+  "plugins": ["@emotion", "@typescript-eslint", "simple-import-sort"],
   "extends": [
     "eslint:recommended",
     "airbnb",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "next"
   ],
   "root": true,
 
@@ -36,6 +32,8 @@
     "operator-linebreak": "off",
     "prefer-arrow-callback": "warn",
     "semi": "off",
+    "indent": "off",
+    "comma-dangle": "off",
 
     // import
     "import/no-named-as-default": "off",
@@ -43,6 +41,8 @@
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "import/no-anonymous-default-export": "error",
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
 
     // jsx-a11y
     "jsx-a11y/href-no-hash": "off",
@@ -71,6 +71,7 @@
     "react/no-typos": "error",
     "react/self-closing-comp": "warn",
     "react/no-access-state-in-setstate": "error",
+    "react/jsx-one-expression-per-line": "off",
 
     // Typescript
     "@typescript-eslint/explicit-module-boundary-types": "off"
