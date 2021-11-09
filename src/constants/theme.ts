@@ -10,10 +10,10 @@ const breakpointValues = {
 };
 
 const StandardModeColors: ColorModeColors = {
-  text: '#fff',
+  text: '#000',
   lighten: 'rgba(255, 255, 255, 0.6)',
   darken: 'rgba(0, 0, 0, 0.2)',
-  background: '#000',
+  background: '#fff',
 };
 
 const theme = {
@@ -51,7 +51,9 @@ const theme = {
     body: '1rem',
     title: '2rem',
   },
-  fontFamily: 'sans-serif',
+  fontFamily: {
+    normal: 'sans-serif',
+  },
   lineHeight: {
     normal: 1.2,
   },

@@ -11,7 +11,7 @@ const Home: React.FC = () => {
       <Body>
         Welcome to Next JS! Edit src/pages/index.tsx to get started...
       </Body>
-      <Body>
+      <Body bold>
         The current breakpoint is &apos;{breakpoints[breakpoints.length - 1]}
         &apos;
       </Body>
