@@ -4,8 +4,9 @@ import type { AppProps /* , AppContext */ } from 'next/app';
 import { useEffect, useState } from 'react';
 
 import FlexBox from '~/components/box/FlexBox';
-import theme from '~/constants/theme';
+import { themes } from '~/constants/theme';
 import { BreakpointsContext } from '~/logic/contexts/breakpointsContext';
+import { ColorMode } from '~/typings/colorMode';
 import { BreakpointSize } from '~/typings/theme';
 
 const marPadZero = css`
@@ -58,6 +59,8 @@ const Page: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [windowBreakpoints, setWindowBreakpoints] = useState<BreakpointSize[]>([
     'xxs',
   ]);
+  const [colorMode] = useState<ColorMode>('standard');
+  const theme = themes[colorMode];
 
   useEffect(() => {
     Object.keys(theme.breakpointValues).forEach((key, i, arr) => {
@@ -76,6 +79,7 @@ const Page: React.FC<AppProps> = ({ Component, pageProps }) => {
         );
       });
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

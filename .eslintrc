@@ -34,6 +34,7 @@
     "semi": "off",
     "indent": "off",
     "comma-dangle": "off",
+    "no-shadow": "off",
 
     // import
     "import/no-named-as-default": "off",
@@ -43,6 +44,7 @@
     "import/no-anonymous-default-export": "error",
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
+    "import/no-default-export": "error",
 
     // jsx-a11y
     "jsx-a11y/href-no-hash": "off",
@@ -74,7 +76,9 @@
     "react/jsx-one-expression-per-line": "off",
 
     // Typescript
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "@typescript-eslint/no-empty-interface": "off"
   },
   "parserOptions": {
     "ecmaFeatures": {

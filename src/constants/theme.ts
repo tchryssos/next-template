@@ -1,3 +1,5 @@
+import { ColorMode, ColorModeColors } from '~/typings/colorMode';
+
 const breakpointValues = {
   xxs: 479,
   xs: 480,
@@ -5,6 +7,13 @@ const breakpointValues = {
   md: 1024,
   lg: 1200,
   xl: 1440,
+};
+
+const StandardModeColors: ColorModeColors = {
+  text: '#fff',
+  lighten: 'rgba(255, 255, 255, 0.6)',
+  darken: 'rgba(0, 0, 0, 0.2)',
+  background: '#000',
 };
 
 const theme = {
@@ -16,10 +25,6 @@ const theme = {
     md: `@media only screen and (min-width: ${breakpointValues.md}px)`,
     lg: `@media only screen and (min-width: ${breakpointValues.lg}px)`,
     xl: `@media only screen and (min-width: ${breakpointValues.xl}px)`,
-  },
-  colors: {
-    black: '#000',
-    white: '#fff',
   },
   spacing: {
     0: '0rem',
@@ -57,8 +62,12 @@ const theme = {
   },
 };
 
-export default theme;
+export const StandardTheme = { ...theme, colors: StandardModeColors };
 
-export type ThemeShape = typeof theme;
+export type ThemeShape = typeof StandardTheme;
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Theme extends ThemeShape {}
+
+export const themes: Record<ColorMode, Theme> = {
+  standard: StandardTheme,
+};
