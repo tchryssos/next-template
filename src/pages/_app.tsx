@@ -1,4 +1,4 @@
-import { css, Global, ThemeProvider } from '@emotion/react';
+import { css, Global, Theme, ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 import type { AppProps /* , AppContext */ } from 'next/app';
 import { useEffect, useState } from 'react';
@@ -20,7 +20,7 @@ const baseStyle = css`
   ${marPadZero};
 `;
 
-const globalStyles = css`
+const createGlobalStyles = (theme: Theme) => css`
   /* @import url(''); */
   html {
     ${baseStyle};
@@ -29,11 +29,15 @@ const globalStyles = css`
     ${baseStyle};
     position: relative;
     box-sizing: border-box;
+    font-family: ${theme.fontFamily.normal};
   }
   #app {
     ${baseStyle};
   }
-  div {
+  div,
+  input,
+  select,
+  textarea {
     box-sizing: border-box;
   }
   p {
@@ -86,7 +90,7 @@ const Page: React.FC<AppProps> = ({ Component, pageProps }) => {
     <ThemeProvider theme={theme}>
       <BreakpointsContext.Provider value={windowBreakpoints}>
         <GlobalWrapper>
-          <Global styles={globalStyles} />
+          <Global styles={createGlobalStyles(theme)} />
           {/* eslint-disable-next-line react/jsx-props-no-spreading */}
           <Component {...pageProps} />
         </GlobalWrapper>
