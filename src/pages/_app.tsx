@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import type { AppProps /* , AppContext */ } from 'next/app';
 import { useEffect, useState } from 'react';
 
-import FlexBox from '~/components/box/FlexBox';
+import { FlexBox } from '~/components/box/FlexBox';
 import { themes } from '~/constants/theme';
 import { BreakpointsContext } from '~/logic/contexts/breakpointsContext';
 import { ColorMode } from '~/typings/colorMode';
