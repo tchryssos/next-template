@@ -31,7 +31,8 @@ const createGlobalStyles = (theme: Theme) => css`
     box-sizing: border-box;
     font-family: ${theme.fontFamily.normal};
   }
-  #app {
+  #app,
+  #__next {
     ${baseStyle};
   }
   div,
@@ -56,6 +57,7 @@ const createGlobalStyles = (theme: Theme) => css`
 
 const GlobalWrapper = styled(FlexBox)`
   width: 100%;
+  min-height: 100%;
   overflow: hidden;
 `;
 
