@@ -1,104 +1,151 @@
-import { css, Global, Theme, ThemeProvider } from '@emotion/react';
-import styled from '@emotion/styled';
-import type { AppProps /* , AppContext */ } from 'next/app';
-import { useEffect, useState } from 'react';
+import { ColorSchemeProvider, MantineProvider } from '@mantine/core';
+import type { AppProps } from 'next/app';
+import { useState } from 'react';
 
-import { FlexBox } from '~/components/box/FlexBox';
-import { themes } from '~/constants/theme';
-import { BreakpointsContext } from '~/logic/contexts/breakpointsContext';
-import { ColorMode } from '~/typings/colorMode';
-import { BreakpointSize } from '~/typings/theme';
+import { BREAKPOINT_VALUES } from '~/constants/theme';
+import { ColorScheme } from '~/typings/theme';
 
-const marPadZero = css`
-  margin: 0;
-  padding: 0;
-`;
+function Page({ Component, pageProps }: AppProps) {
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
 
-const baseStyle = css`
-  height: 100%;
-  width: 100%;
-  ${marPadZero};
-`;
-
-const createGlobalStyles = (theme: Theme) => css`
-  /* @import url(''); */
-  html {
-    ${baseStyle};
-  }
-  body {
-    ${baseStyle};
-    position: relative;
-    box-sizing: border-box;
-    font-family: ${theme.fontFamily.normal};
-  }
-  #app,
-  #__next {
-    ${baseStyle};
-  }
-  div,
-  input,
-  select,
-  textarea {
-    box-sizing: border-box;
-  }
-  p {
-    ${marPadZero};
-  }
-  h1 {
-    ${marPadZero};
-  }
-  h2 {
-    ${marPadZero};
-  }
-  h3 {
-    ${marPadZero};
-  }
-`;
-
-const GlobalWrapper = styled(FlexBox)`
-  width: 100%;
-  min-height: 100%;
-  overflow: hidden;
-`;
-
-const Page: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const [windowBreakpoints, setWindowBreakpoints] = useState<BreakpointSize[]>([
-    'xxs',
-  ]);
-  const [colorMode] = useState<ColorMode>('standard');
-  const theme = themes[colorMode];
-
-  useEffect(() => {
-    Object.keys(theme.breakpointValues).forEach((key, i, arr) => {
-      const queryAdjective = key === 'xss' ? 'max' : 'min';
-      const query = window.matchMedia(
-        `(${queryAdjective}-width: ${
-          theme.breakpointValues[key as BreakpointSize]
-        }px)`
-      );
-      if (query.matches) {
-        setWindowBreakpoints(arr.slice(0, i + 1) as BreakpointSize[]);
-      }
-      query.addEventListener('change', (e) => {
-        setWindowBreakpoints(
-          arr.slice(0, e.matches ? i + 1 : i) as BreakpointSize[]
-        );
-      });
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const toggleColorScheme = () => {
+    setColorScheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   return (
-    <ThemeProvider theme={theme}>
-      <BreakpointsContext.Provider value={windowBreakpoints}>
-        <GlobalWrapper>
-          <Global styles={createGlobalStyles(theme)} />
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          <Component {...pageProps} />
-        </GlobalWrapper>
-      </BreakpointsContext.Provider>
-    </ThemeProvider>
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
+    >
+      <MantineProvider
+        theme={{
+          colorScheme,
+          colors: {
+            green: [
+              '#EEF7ED',
+              '#D0E9CD',
+              '#B1DBAD',
+              '#93CD8D',
+              '#74BF6D',
+              '#56B14E',
+              '#458E3E',
+              '#336A2F',
+              '#22471F',
+              '#112310',
+            ],
+            yellow: [
+              '#FEF8E7',
+              '#FCEDBB',
+              '#FAE18F',
+              '#F8D563',
+              '#F6C937',
+              '#F4BD0B',
+              '#C39709',
+              '#927207',
+              '#624C04',
+              '#312602',
+            ],
+            red: [
+              '#FFE5EB',
+              '#FFB8C8',
+              '#FF8AA5',
+              '#FF5C82',
+              '#FF2E5F',
+              '#FF003B',
+              '#CC0030',
+              '#990024',
+              '#660018',
+              '#33000C',
+            ],
+            blue: [
+              '#E6ECFE',
+              '#B9C9FE',
+              '#8CA5FD',
+              '#5F82FC',
+              '#325FFB',
+              '#053CFA',
+              '#0430C8',
+              '#032496',
+              '#021864',
+              '#010C32',
+            ],
+            purple: [
+              '#F2EDF7',
+              '#D9CEE9',
+              '#C1AEDB',
+              '#A98ECC',
+              '#906FBE',
+              '#784FB0',
+              '#603F8D',
+              '#482F6A',
+              '#302046',
+              '#181023',
+            ],
+            orange: [
+              '#FCF2E8',
+              '#F7DAC0',
+              '#F2C297',
+              '#ECAA6E',
+              '#E79246',
+              '#E27A1D',
+              '#B56117',
+              '#884911',
+              '#5A310C',
+              '#2D1806',
+            ],
+            teal: [
+              '#EFF6F5',
+              '#D2E5E4',
+              '#B4D4D3',
+              '#97C4C2',
+              '#7AB3B0',
+              '#5DA29F',
+              '#4A827F',
+              '#38615F',
+              '#254140',
+              '#132020',
+            ],
+            cyan: [
+              '#E5F6FF',
+              '#B8E7FF',
+              '#8AD7FF',
+              '#5CC8FF',
+              '#2EB8FF',
+              '#00A9FF',
+              '#0087CC',
+              '#006599',
+              '#004466',
+              '#002233',
+            ],
+            pink: [
+              '#FFE5F2',
+              '#FFB8D9',
+              '#FF8AC1',
+              '#FF5CA9',
+              '#FF2E90',
+              '#FF0078',
+              '#CC0060',
+              '#990048',
+              '#660030',
+              '#330018',
+            ],
+          },
+          breakpoints: {
+            xs: BREAKPOINT_VALUES.xs,
+            sm: BREAKPOINT_VALUES.sm,
+            md: BREAKPOINT_VALUES.md,
+            lg: BREAKPOINT_VALUES.lg,
+            xl: BREAKPOINT_VALUES.xl,
+          },
+        }}
+        withGlobalStyles
+        withNormalizeCSS
+      >
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        <Component {...pageProps} />
+      </MantineProvider>
+    </ColorSchemeProvider>
   );
-};
+}
 
 export default Page;

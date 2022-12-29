@@ -1,30 +1,20 @@
-import styled from '@emotion/styled';
+import { Container } from '@mantine/core';
 
-import { useBreakpointsAtLeast } from '~/logic/hooks/useBreakpoints';
+import { BREAKPOINT_VALUES } from '~/constants/theme';
 
-import { FlexBox } from '../box/FlexBox';
 import { Head } from './Head';
 
 type LayoutProps = {
   children?: React.ReactNode;
   title?: string;
 };
-
-const PageWrapper = styled(FlexBox)`
-  max-width: ${({ theme }) => theme.breakpointValues.lg}px;
-  width: 100%;
-  height: 100%;
-`;
-
-export const Layout: React.FC<LayoutProps> = ({ children, title }) => {
-  const isAtLeastXs = useBreakpointsAtLeast('xs');
-
+export function Layout({ children, title }: LayoutProps) {
   return (
     <>
       <Head title={title} />
-      <FlexBox flex={1} justifyContent="center" p={isAtLeastXs ? 32 : 16}>
-        <PageWrapper>{children}</PageWrapper>
-      </FlexBox>
+      <Container maw={BREAKPOINT_VALUES.lg} px={{ _: 16, xs: 32 }}>
+        {children}
+      </Container>
     </>
   );
-};
+}

@@ -1,11 +1,4 @@
-import { StandardTheme, Theme as CustomTheme } from '~/constants/theme';
+export type BreakpointSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type BreakpointString = `(${'min' | 'max'}-width: ${number}px)`;
 
-declare module '@emotion/react' {
-  export interface Theme extends CustomTheme {}
-}
-
-export type Spacing = keyof CustomTheme['spacing'];
-export type Color = keyof CustomTheme['colors'];
-export type BorderWidth = keyof CustomTheme['border']['borderWidth'];
-export type BreakpointSize = keyof typeof StandardTheme.breakpointValues;
-export type FontVariant = keyof CustomTheme['fontFamily'];
+export type ColorScheme = 'light' | 'dark';

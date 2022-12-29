@@ -1,22 +1,17 @@
-import { useContext } from 'react';
+import { Flex, Text } from '@mantine/core';
 
 import { Layout } from '~/components/meta/Layout';
-import { Body } from '~/components/typography/Body';
-import { BreakpointsContext } from '~/logic/contexts/breakpointsContext';
 
-const Home: React.FC = () => {
-  const breakpoints = useContext(BreakpointsContext);
+function Home() {
   return (
     <Layout>
-      <Body>
-        Welcome to Next JS! Edit src/pages/index.tsx to get started...
-      </Body>
-      <Body bold>
-        The current breakpoint is &apos;{breakpoints[breakpoints.length - 1]}
-        &apos;
-      </Body>
+      <Flex bg="red">
+        <Text>
+          Welcome to Next JS! Edit src/pages/index.tsx to get started...
+        </Text>
+      </Flex>
     </Layout>
   );
-};
+}
 
 export default Home;

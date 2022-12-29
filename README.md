@@ -29,8 +29,9 @@ There are 2 ways to run the app locally:
 
 Most of the things that could be covered here are probably covered by the `next` docs (linked above), but there are a few configuration things worth touching on:
 
-1. This template includes [`emotion/react`](https://emotion.sh/docs/introduction) and [`emotion/styled`](https://emotion.sh/docs/styled) for css-in-jss styling using the styled component pattern. See the `emotion/styled` documentation for on its usage.
-2. For testing, this template inculdes [`jest`](https://jestjs.io/docs/getting-started) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro/). Your test files should follow the `Component.test.tsx` naming pattern, which will allow `jest` to find them automatically. Use `yarn test` to run your tests.
+1. This template uses [`Mantine`](https://mantine.dev/) as a base component library. See their documentation for available props, theme configuration, etc.
+2. For additional styling / customization [`emotion/react`](https://emotion.sh/docs/introduction) and [`emotion/styled`](https://emotion.sh/docs/styled) are included. See the `emotion/styled` documentation for on its usage.
+3. For testing, this template inculdes [`jest`](https://jestjs.io/docs/getting-started) and [`react-testing-library`](https://testing-library.com/docs/react-testing-library/intro/). Your test files should follow the `Component.test.tsx` naming pattern, which will allow `jest` to find them automatically. Use `yarn test` to run your tests.
 
 ## Storybook
 
