@@ -1,6 +1,7 @@
 import { ColorMode, ColorModeColors } from '~/typings/colorMode';
+import { BreakpointSize } from '~/typings/theme';
 
-const breakpointValues = {
+export const breakpointValues: Record<BreakpointSize, number> = {
   xxs: 479,
   xs: 480,
   sm: 768,
@@ -9,7 +10,16 @@ const breakpointValues = {
   xl: 1440,
 };
 
-const StandardModeColors: ColorModeColors = {
+export const breakpointStrings = {
+  xxs: `(max-width: ${breakpointValues.xxs}px)`,
+  xs: `(min-width: ${breakpointValues.xs}px)`,
+  sm: `(min-width: ${breakpointValues.sm}px)`,
+  md: `(min-width: ${breakpointValues.md}px)`,
+  lg: `(min-width: ${breakpointValues.lg}px)`,
+  xl: `(min-width: ${breakpointValues.xl}px)`,
+};
+
+const LightModeColors: ColorModeColors = {
   text: '#000',
   lighten: 'rgba(255, 255, 255, 0.6)',
   darken: 'rgba(0, 0, 0, 0.2)',
@@ -19,12 +29,12 @@ const StandardModeColors: ColorModeColors = {
 const theme = {
   breakpointValues,
   breakpoints: {
-    xxs: `@media only screen and (max-width: ${breakpointValues.xxs}px)`,
-    xs: `@media only screen and (min-width: ${breakpointValues.xs}px)`,
-    sm: `@media only screen and (min-width: ${breakpointValues.sm}px)`,
-    md: `@media only screen and (min-width: ${breakpointValues.md}px)`,
-    lg: `@media only screen and (min-width: ${breakpointValues.lg}px)`,
-    xl: `@media only screen and (min-width: ${breakpointValues.xl}px)`,
+    xxs: `@media only screen and ${breakpointStrings.xxs}}`,
+    xs: `@media only screen and ${breakpointStrings.xs}}`,
+    sm: `@media only screen and ${breakpointStrings.sm}}`,
+    md: `@media only screen and ${breakpointStrings.md}}`,
+    lg: `@media only screen and ${breakpointStrings.lg}}`,
+    xl: `@media only screen and ${breakpointStrings.xl}}`,
   },
   spacing: {
     0: '0rem',
@@ -64,12 +74,13 @@ const theme = {
   },
 };
 
-export const StandardTheme = { ...theme, colors: StandardModeColors };
+export const LightTheme = { ...theme, colors: LightModeColors };
 
-export type ThemeShape = typeof StandardTheme;
+export type ThemeShape = typeof LightTheme;
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Theme extends ThemeShape {}
 
 export const themes: Record<ColorMode, Theme> = {
-  standard: StandardTheme,
+  light: LightTheme,
+  dark: LightTheme,
 };

@@ -8,4 +8,4 @@ export interface ColorModeColors {
   lighten: ColorRgba;
 }
 
-export type ColorMode = 'standard';
+export type ColorMode = 'light' | 'dark';
