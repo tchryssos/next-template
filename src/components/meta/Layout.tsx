@@ -1,8 +1,6 @@
-import { Flex } from '@mantine/core';
+import { Container } from '@mantine/core';
 
-import { breakpointValues } from '~/constants/theme';
-import { useBreakpointsAtLeast } from '~/logic/hooks/useBreakpoints';
-import { pxToRem } from '~/logic/util/styles';
+import { BREAKPOINT_VALUES } from '~/constants/theme';
 
 import { Head } from './Head';
 
@@ -11,16 +9,12 @@ type LayoutProps = {
   title?: string;
 };
 export function Layout({ children, title }: LayoutProps) {
-  const isAtLeastXs = useBreakpointsAtLeast('xs');
-
   return (
     <>
       <Head title={title} />
-      <Flex justify="center" p={isAtLeastXs ? 32 : 16} w="100%">
-        <Flex h="100%" maw={pxToRem(breakpointValues.lg)} w="100%">
-          {children}
-        </Flex>
-      </Flex>
+      <Container maw={BREAKPOINT_VALUES.lg} px={{ _: 16, xs: 32 }}>
+        {children}
+      </Container>
     </>
   );
 }
