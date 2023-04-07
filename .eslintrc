@@ -46,7 +46,7 @@
     "import/named": "off",
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
-    "import/no-default-export": "warn",
+    "import/no-default-export": "error",
 
     // jsx-a11y
     "jsx-a11y/href-no-hash": "off",
