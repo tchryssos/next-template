@@ -1,56 +1,41 @@
 import styled from '@emotion/styled';
 import NextLink from 'next/link';
-import { MouseEventHandler } from 'react';
 
-type LinkProps = {
-  internal?: boolean;
+interface LinkProps {
   href: string;
+  isInternal?: boolean;
   children: React.ReactNode;
   className?: string;
-  onMouseEnter?: MouseEventHandler<HTMLSpanElement>;
-  onMouseLeave?: MouseEventHandler<HTMLSpanElement>;
-  noHoverStyles?: boolean;
-};
+  underline?: boolean;
+}
 
-const StyledLink = styled.a<Pick<LinkProps, 'noHoverStyles'>>`
-  color: ${({ theme }) => theme.colors.text};
+interface StyledProps extends Pick<LinkProps, 'underline'> {}
+
+const StyledLink = styled.a<StyledProps>`
   display: inline-block;
-  :hover,
-  :active {
+  text-decoration: ${({ underline }) => (underline ? 'underline' : 'none')};
+  :hover {
+    filter: brightness(0.8);
   }
 `;
 
-const OnMouseSpan = styled.span`
-  display: inline-flex;
-`;
-
-const Link: React.FC<LinkProps> = ({
-  internal,
+export function Link({
   href,
+  isInternal = true,
   children,
   className,
-  onMouseEnter,
-  onMouseLeave,
-  noHoverStyles,
-}) => (
-  <>
-    <NextLink href={href} passHref>
+  underline,
+}: LinkProps) {
+  return (
+    <NextLink href={href} legacyBehavior passHref>
       <StyledLink
         className={className}
-        noHoverStyles={noHoverStyles}
         rel="noopener noreferrer"
-        target={internal ? '_self' : '_blank'}
+        target={isInternal ? '_self' : '_blank'}
+        underline={underline}
       >
-        {/*
-            Hack to allow mouseEvents inside nextjs links
-            See https://github.com/vercel/next.js/issues/1490
-          */}
-        <OnMouseSpan onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-          {children}
-        </OnMouseSpan>
+        {children}
       </StyledLink>
     </NextLink>
-  </>
-);
-
-export default Link;
+  );
+}
