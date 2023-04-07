@@ -30,11 +30,12 @@
     "no-confusing-arrow": "off",
     "implicit-arrow-linebreak": "off",
     "operator-linebreak": "off",
-    "prefer-arrow-callback": "warn",
     "semi": "off",
     "indent": "off",
     "comma-dangle": "off",
-    "no-shadow": "off",
+    "function-paren-newline": "off",
+    "no-shadow": "off", // ts-rule below
+    "prefer-arrow-callback": ["warn", { "allowNamedFunctions": true }],
 
     // import
     "import/no-named-as-default": "off",
@@ -42,9 +43,10 @@
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "import/no-anonymous-default-export": "error",
+    "import/named": "off",
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
-    "import/no-default-export": "error",
+    "import/no-default-export": "warn",
 
     // jsx-a11y
     "jsx-a11y/href-no-hash": "off",
@@ -74,11 +76,14 @@
     "react/self-closing-comp": "warn",
     "react/no-access-state-in-setstate": "error",
     "react/jsx-one-expression-per-line": "off",
+    "react/function-component-definition": "warn",
+    "react/jsx-no-useless-fragment": "off",
 
     // Typescript
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-shadow": "error",
-    "@typescript-eslint/no-empty-interface": "off"
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-shadow": "error"
   },
   "parserOptions": {
     "ecmaFeatures": {
